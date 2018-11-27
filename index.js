@@ -6,7 +6,7 @@ var express = require('express'),
 
 ///////////////// set up App ////////////////////////////////
 var app = express();
-var server = app.listen(4000, function () {
+var server = app.listen('https://nameless-earth-33798.herokuapp.com/', function () {
     console.log('listening for requests on port 4000,');
 });
 // Socket setup & pass server
