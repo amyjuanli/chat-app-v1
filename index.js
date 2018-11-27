@@ -15,26 +15,6 @@ var io = socketio(server);
 app.use(express.static('public'));
 
 
-
-///////////////// Functions ////////////////////////////////
-const errorEmit = (socket) => {
-    return (err) => {
-        console.log(err);
-        socket.broadcast.emit('user.events', 'Something went wrong!');
-    }
-}
-
-const namespaceHandler = (namespace) => {
-    return (socket) => {
-        socket.emit('event', 'You joined ' + namespace.name);
-        socket.on('event', (data) => {
-            socket.broadcast.emit('event', data);
-        })
-    }
-}
-
-
-
 ///////////////// listen to connection ////////////////////////////////
 /**
  * default namespace
